@@ -1,0 +1,26 @@
+//改編的部分是將leetcode的題目包裝成OS題目，然後把「符合範圍的值總和」改成「符合範圍的值個數」
+
+typedef struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+} treenode;
+
+int countBST(treenode* root, int low, int high) {
+    // interative DFS
+    treenode* stack[500];
+    treenode* node;
+    int sp=0, ans=0;
+    if(root != NULL){
+        stack[sp++] = root;
+    }
+    while (sp>0){
+        //stack有節點要訪問
+        node=stack[--sp];
+        if (node->val >= low && node->val <= high ) ans ++;
+        //先找左邊，所以先把右邊儲存起來
+        if (node->val <= high && node-> right != NULL) stack[sp++]= node->right;
+        if (node->val >= low && node-> left != NULL) stack[sp++]= node-> left;
+    }
+    return ans;
+}
