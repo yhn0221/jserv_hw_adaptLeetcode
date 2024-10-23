@@ -1,0 +1,19 @@
+//題目修改自 Leetcode 206. Reverse Linked List
+//
+typedef struct ListNode{
+    int val;
+    struct ListNode* next;
+} listnode;
+
+listnode* reverselist(listnode* head){
+    listnode* temp = head;
+    listnode* ans = NULL;
+    
+    while (temp) {
+        listnode* next = temp->next;
+        temp->next = ans;
+        ans = temp;
+        temp = next;
+    }
+    return ans;
+}
