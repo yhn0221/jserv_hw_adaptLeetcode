@@ -1,5 +1,7 @@
 //題目修改自 Leetcode 206. Reverse Linked List
-//
+//Our company's software version control uses a linked list to keep track of changes, 
+//meaning the latest record is inserted at the end of the linked list. 
+//If we want to view the version history, we need to reverse the records. How do you think you would handle this?
 typedef struct ListNode{
     int val;
     struct ListNode* next;
